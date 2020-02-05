@@ -15,4 +15,9 @@ TEST_CASE("Test is even function") {
 TEST_CASE("Test get generation function")
 {
 	REQUIRE(get_generation(2010) == "Centenial");
+	REQUIRE(get_generation(1990) == "Millenial");
+	REQUIRE(get_generation(1970) == "Generation X");
+	REQUIRE(get_generation(1950) == "Baby Boomer");
+	REQUIRE(get_generation(1930) == "Silent Generation");
+	REQUIRE(get_generation(1000) == "Invalud Year");
 }
