@@ -1,8 +1,15 @@
 #include"for.h"
+#include<iostream>
 
-int main() 
-{
-	
+using std::cout;
+using std::cin;
+
+int main() {
+	int num;
+	cout << "Enter a number: ";
+	cin >> num;
+
+	display_numers(num);
 
 	return 0;
 }
