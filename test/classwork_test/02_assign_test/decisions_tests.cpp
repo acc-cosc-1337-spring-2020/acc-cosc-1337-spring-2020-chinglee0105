@@ -9,6 +9,5 @@ TEST_CASE("Verify Test Configuration", "verification") {
 TEST_CASE("Test gross_pay function") {
 	REQUIRE(gross_pay(40, 7) == 280);
 	REQUIRE(gross_pay(50, 7) == 385);
-
 }
 
