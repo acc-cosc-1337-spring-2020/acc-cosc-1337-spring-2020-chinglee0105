@@ -1,6 +1,6 @@
+#include "do_while.h"
 
-int main() 
-{	
-	
+int main() {	
+	prompt_user();
 	return 0;
 }
