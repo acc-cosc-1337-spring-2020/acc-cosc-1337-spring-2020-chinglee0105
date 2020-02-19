@@ -24,8 +24,7 @@ void loop_string_w_index(const std::string& str) {
 
 /*
 Write code for loop_string_w_index that accepts a string parameter.
-The function uses a for ranged loop using auto to iterate and display the characters in the
-string as follows:
+The function uses a for ranged loop using auto to iterate and display the characters in the/string as follows:
 for string test displays
 
 t
@@ -36,5 +35,17 @@ t
 void loop_string_w_auto(const std::string& str) {
 	for (auto ch : str) {
 		std::cout << ch << "\n";
+	}
+}
+
+void loop_string_w_value(std::string& str) {
+	for (auto ch : str) {
+		ch = 'z';
+	}
+}
+
+void loop_string_w_ref(std::string& str) {
+	for (auto &ch : str) {
+		ch = 'z';
 	}
 }

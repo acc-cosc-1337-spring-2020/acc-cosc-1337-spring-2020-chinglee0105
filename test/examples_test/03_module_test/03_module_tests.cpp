@@ -2,6 +2,9 @@
 #include "catch.hpp"
 #include "while.h"
 #include "value_ref.h"
+#include "for_ranged.h"
+#include<string>
+
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -14,10 +17,27 @@ TEST_CASE("Test sum of squares function") {
 }
 
 TEST_CASE("Test pass by val and ref function") {
-	int num1 = 5, num2 = 10;
+	int num1 = 5;
+	int num2 = 10;
+
 	pass_by_val_and_ref(num1, num2);
 
 	REQUIRE(num1 == 5);
 	REQUIRE(num1 == 50);
+}
 
+TEST_CASE("Test for ranged loop by value") {
+	std::string name = "Joe";
+
+	loop_string_w_value(name);
+
+	REQUIRE(name == "Joe");
+}
+
+TEST_CASE("Test for ranged loop by ref") {
+	std::string name = "Joe";
+
+	loop_string_w_ref(name);
+
+	REQUIRE(name == "zzz");
 }
