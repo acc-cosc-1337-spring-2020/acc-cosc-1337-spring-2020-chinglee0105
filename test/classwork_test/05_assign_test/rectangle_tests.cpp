@@ -11,9 +11,9 @@ TEST_CASE("Test calculateArea") {
 	rectangle r (4, 5);
 	REQUIRE(r.functionAreas() == 20);
 
-	rectangle r(10, 10);
-	REQUIRE(r.functionAreas() == 100);
+	rectangle r1(10, 10);
+	REQUIRE(r1.functionAreas() == 100);
 
-	rectangle r(100, 10);
-	REQUIRE(r.functionAreas() == 1000);
+	rectangle r2(100, 10);
+	REQUIRE(r2.functionAreas() == 1000);
 }

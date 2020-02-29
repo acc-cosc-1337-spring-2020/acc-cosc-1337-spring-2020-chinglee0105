@@ -5,7 +5,7 @@ that calculates area of the rectangle.  The class has 3 int private variables ar
 */
 class rectangle {
 public:
-	rectangle(int w, int h) : width{ w }, height{ h } {}
+	rectangle(int w, int h) : width{ w }, height{ h } {calculateArea(); }
 	int functionAreas() { return area; }
 
 private:

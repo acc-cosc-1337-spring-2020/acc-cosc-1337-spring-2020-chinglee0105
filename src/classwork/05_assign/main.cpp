@@ -20,9 +20,14 @@ Iterate the vector and display the Area for each Rectangle on one line and the t
 int main() {
 	std::vector<rectangle> recs{ rectangle(4, 5), rectangle(10, 10), rectangle(100, 10) };
 
+	auto total{ 0 };
+
 	for (auto cal : recs) {
 		cout << cal.functionAreas() << "\n";
+		total += cal.functionAreas();
 	}
+
+	cout << "Total area: " << total;
 
 	return 0;
 }
