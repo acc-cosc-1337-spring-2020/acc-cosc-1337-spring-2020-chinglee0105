@@ -25,4 +25,4 @@ script:
   - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && make
   - ./test/examples_test/01_module_test/ex_01_tests -s
   - ./test/classwork_test/01_assign_test/cw_01_tests -s
-  - ./test/homework_test/04_vectors_test/04_vectors_tests -s
+  - ./test/homework_test/tic_tac_toe_test/tic_tac_toe_tests -s

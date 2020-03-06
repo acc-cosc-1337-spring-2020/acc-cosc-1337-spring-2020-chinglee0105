@@ -5,19 +5,21 @@ using std::string;
 //h
 class ticTacToe {
 public:
-	string getMessage;
-
 	void startGame(string firstPlayer);
 	void markBoard(int postition);
-	string getPlayer()const;
+	string getPlayer() const { return player; }
 
 private:
-	string message;
 	string player;
 
 	void setNextPlayer();
 };
 
 class error {
+public:
 	error(string msg) : message{ msg } {}
+	string getMessage() const { return message; }
+
+private:
+	string message;
 };
