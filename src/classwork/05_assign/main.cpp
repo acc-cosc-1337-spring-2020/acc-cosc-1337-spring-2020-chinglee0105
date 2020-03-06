@@ -23,7 +23,7 @@ int main() {
 	auto total{ 0 };
 
 	for (auto cal : recs) {
-		cout << cal.functionAreas() << "\n";
+		cout << cal;
 		total += cal.functionAreas();
 	}
 

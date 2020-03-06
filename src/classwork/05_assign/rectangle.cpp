@@ -1,5 +1,8 @@
 //Write include statement
 #include "rectangle.h"
+#include<iostream>
+
+using std::cout;
 
 
 /*
@@ -10,4 +13,9 @@ that calculates area of the rectangle.  The class has 3 int private variables ar
 
 void rectangle::calculateArea() {
 	area = width * height;
+}
+
+ostream& operator<<(ostream& out, const rectangle& b) {
+	out << "Area is: " << b.area << "\n";
+	return out;
 }

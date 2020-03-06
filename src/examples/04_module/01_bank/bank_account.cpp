@@ -1,4 +1,7 @@
 #include "bank_account.h"
+#include<iostream>
+
+using std::cout;
 
 //bank_account.cpp
 
@@ -29,4 +32,26 @@ void bankAccount::open(int amount) {
 	}
 	
 	balance += amount;
+}
+
+double bankAccount::rate = init_rate();
+
+void display_balance(const bankAccount& b) {
+	cout << "Balance is: " << b.balance << "\n";
+}
+
+ostream& operator<<(ostream& out, const bankAccount& b) {
+	out << "Balance is: " << b.balance << "\n";
+	return out;
+}
+
+istream& operator>>(istream& in, bankAccount& b) {
+	int amount;
+
+	cout << "Enter amount: ";
+	in >> amount;
+
+	b.deposit(amount);
+
+	return in;
 }
