@@ -1,4 +1,4 @@
-#include"bank_account.h"
+#include"checking_account.h"
 #include<iostream>
 #include <vector>
 
@@ -7,14 +7,17 @@ using std::cin;
 using std::vector;
 
 int main() {
-	bankAccount a;
-	cout << a.get_balance();
+	checkingAccount checking;
+	checkingAccount checking1(90);
 
-	vector<bankAccount> accounts{ bankAccount(100), bankAccount(200) };
+	//bankAccount a;
+	//cout << a.get_balance();
 
-	for (auto act : accounts) {
-		cout << act.get_balance() << "\n";
-	}
+	//vector<bankAccount> accounts{ bankAccount(100), bankAccount(200) };
+
+	//for (auto act : accounts) {
+	//	cout << act.get_balance() << "\n";
+	//}
 
 	bankAccount account(500);
 
