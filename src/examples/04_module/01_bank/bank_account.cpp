@@ -14,6 +14,8 @@ void bankAccount::deposit(int amount) {
 	}
 }
 
+
+
 void bankAccount::withdraw(int amount) {
 	if (amount < 0) {
 		throw invalid("Amount must be greater than 0.");
@@ -26,6 +28,8 @@ void bankAccount::withdraw(int amount) {
 	}
 }
 
+
+
 void bankAccount::open(int amount) {
 	if (amount < min_balance_to_open) {
 		throw invalid("Amount must be at least 25...");
@@ -34,16 +38,24 @@ void bankAccount::open(int amount) {
 	balance += amount;
 }
 
+
+
 double bankAccount::rate = init_rate();
+
+
 
 void display_balance(const bankAccount& b) {
 	cout << "Balance is: " << b.balance << "\n";
 }
 
+
+
 ostream& operator<<(ostream& out, const bankAccount& b) {
 	out << "Balance is: " << b.balance << "\n";
 	return out;
 }
+
+
 
 istream& operator>>(istream& in, bankAccount& b) {
 	int amount;

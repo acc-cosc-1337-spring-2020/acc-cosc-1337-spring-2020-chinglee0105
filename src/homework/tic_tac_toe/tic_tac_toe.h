@@ -14,13 +14,21 @@ public:
 	void markBoard(int postition);
 	void displayBoard() const;
 
+	string getWinner();
+
 	bool gameOver();
 
 
 private:
 	string player;
+	string winner;
 	vector<string> pegs{ 9, " " };
 
+	bool checkColumnWin();
+	bool checkRowWin();
+	bool checkDiagonalWin();
+
+	void setWinner();
 	void setNextPlayer();
 	void clearBoard();
 
