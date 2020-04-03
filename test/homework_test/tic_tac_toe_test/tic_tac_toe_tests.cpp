@@ -64,12 +64,14 @@ TEST_CASE("Test game ends when board is full") {
 	ticTacToe game;
 	game.startGame("X");
 
-	for (int i = 1; i < 9; ++i) {
+	for (int i = 1; i < 7; ++i) {
 		game.markBoard(i);
 		REQUIRE(game.gameOver() == false);
 	}
-
+	
 	game.markBoard(9);
+	game.markBoard(7);
+	game.markBoard(8);
 	REQUIRE(game.gameOver() == true);
 }
 
@@ -100,7 +102,11 @@ TEST_CASE("Test game over if 9 slots are selected") {
 	game.markBoard(7);
 	game.markBoard(8);
 	game.markBoard(9);
+
+	REQUIRE(game.gameOver() == true);
 }
+
+
 
 TEST_CASE("Test win by first column") {
 	ticTacToe game;
@@ -325,5 +331,5 @@ TEST_CASE("Test for no winner") {
 	REQUIRE(game.gameOver() == false);
 	game.markBoard(8);
 
-	REQUIRE(game.gameOver() == false);
+	REQUIRE(game.gameOver() == true);
 }

@@ -49,19 +49,23 @@ string ticTacToe::getWinner() {
 bool ticTacToe::gameOver() {
 	if (checkColumnWin() == true || checkRowWin() == true || checkDiagonalWin() == true) {
 		setWinner();
+		return true;
+	}
+	else if (checkBoardFull() == true) {
+		winner = "C";
+		return true;
 	}
 	else {
-		winner = "C";
+		return false;
 	}
-	return checkBoardFull();
 }
 
 
 
 bool ticTacToe::checkColumnWin() {
-	bool column1 = pegs[0] == pegs[3] && pegs[3] == pegs[6];
-	bool column2 = pegs[1] == pegs[4] && pegs[4] == pegs[7];
-	bool column3 = pegs[2] == pegs[5] && pegs[5] == pegs[8];
+	bool column1 = pegs[0].compare(pegs[3]) == 0 && pegs[3].compare(pegs[6]) == 0 && pegs[6].compare(" ") != 0;
+	bool column2 = pegs[1].compare(pegs[4]) == 0 && pegs[4].compare(pegs[7]) == 0 && pegs[7].compare(" ") != 0;
+	bool column3 = pegs[2].compare(pegs[5]) == 0 && pegs[5].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
 
 	return column1 || column2 || column3;
 }
@@ -69,9 +73,9 @@ bool ticTacToe::checkColumnWin() {
 
 
 bool ticTacToe::checkRowWin() {
-	bool row1 = pegs[0] == pegs[1] && pegs[1] == pegs[2];
-	bool row2 = pegs[3] == pegs[4] && pegs[4] == pegs[5];
-	bool row3 = pegs[6] == pegs[7] && pegs[7] == pegs[8];
+	bool row1 = pegs[0].compare(pegs[1]) == 0 && pegs[1].compare(pegs[2]) == 0 && pegs[2].compare(" ") != 0;
+	bool row2 = pegs[3].compare(pegs[4]) == 0 && pegs[4].compare(pegs[5]) == 0 && pegs[5].compare(" ") != 0;
+	bool row3 = pegs[6].compare(pegs[7]) == 0 && pegs[7].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
 
 	return row1 || row2 || row3;
 }
@@ -79,8 +83,8 @@ bool ticTacToe::checkRowWin() {
 
 
 bool ticTacToe::checkDiagonalWin() {
-	bool diagonal1 = pegs[0] == pegs[4] && pegs[4] == pegs[8];
-	bool diagonal2 = pegs[6] == pegs[4] && pegs[4] == pegs[2];
+	bool diagonal1 = pegs[0].compare(pegs[4]) == 0 && pegs[4].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
+	bool diagonal2 = pegs[6].compare(pegs[4]) == 0 && pegs[4].compare(pegs[2]) == 0 && pegs[2].compare(" ") != 0;
 
 	return diagonal1 || diagonal2;
 }

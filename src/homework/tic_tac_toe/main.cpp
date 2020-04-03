@@ -6,22 +6,38 @@ using std::cin;
 
 int main() {
 	bool proceed = true;
+
 	string decisionToProceed;
+	string player;
+
 	int position;
 
-	cout << "First player is X \n";
+	cout << "Welcome to game of Tic Tac Toe!" << "\n";
+	cout << "Select your mark (X/O): ";
+	cin >> player;
+
+	while (player != "X" && player != "O") {
+		cout << "Please select either X or O as your mark: ";
+		cin >> player;
+	} 
 
 	ticTacToe game;
 
-	game.startGame("X");
+	game.startGame(player);
 
 	while (proceed) {
 		for (int i = 0; i < 9; ++i) {
-			cout << "Enter your position Player " << game.getPlayer() << ": ";
-			cin >> position;
-
 			try {
-				game.markBoard(position);
+				if (game.gameOver() == false) {
+					cout << "Enter your position Player " << game.getPlayer() << ": ";
+					cin >> position;
+					game.markBoard(position);
+					game.displayBoard();
+				}
+				else {
+					cout << game.getWinner() << " win the game!" << "\n";
+					break;
+				}
 			}
 
 			catch (error e) {
@@ -37,5 +53,5 @@ int main() {
 		}
 	}
 
-	cout << "End of program.";
+	cout << "Game Over.";
 }
