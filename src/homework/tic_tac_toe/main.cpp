@@ -11,14 +11,18 @@ int main() {
 	string player;
 
 	int position;
-
-	cout << "Welcome to game of Tic Tac Toe!" << "\n";
-	cout << "Select your mark (X/O): ";
-	cin >> player;
-
 	while (player != "X" && player != "O") {
-		cout << "Please select either X or O as your mark: ";
-		cin >> player;
+		try
+		{
+			cout << "Welcome to game of Tic Tac Toe!" << "\n";
+			cout << "Select your mark (X/O): ";
+			cin >> player;
+		}
+		catch (error e) 
+		{
+			cout << e.getMessage();
+		}
+		
 	} 
 
 	ticTacToe game;
