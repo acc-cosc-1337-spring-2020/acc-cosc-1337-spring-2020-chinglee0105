@@ -15,7 +15,7 @@ public:
 
 	explicit bankAccount(int b) : balance{b}{}
 
-	virtual int get_balance() const { return balance; }
+	virtual int getBalance() const = 0;
 
 	void deposit(int amount);
 	void withdraw(int amount);
@@ -23,7 +23,7 @@ public:
 
 	double get_rate() const { return rate; }
 
-	friend void display_balance(const bankAccount& b);
+	friend void displayBalance(const bankAccount& b);
 	friend ostream& operator<<(ostream& out, const bankAccount& b);
 	friend istream& operator>>(istream& in, bankAccount& b);
 
@@ -34,7 +34,7 @@ private:
 	const int min_balance_to_open{ 25 };
 
 	static double rate;
-	static double init_rate() { return .025; }
+	static double initRate() { return .025; }
 };
 
 #endif
@@ -45,7 +45,7 @@ private:
 class invalid {
 public:
 	invalid(string msg) : message{msg} {}
-	string get_error() const { return message; }
+	string getError() const { return message; }
 
 private:
 	string message;

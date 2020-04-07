@@ -5,6 +5,12 @@ using std::cout;
 
 //bank_account.cpp
 
+int bankAccount::getBalance() const {
+	return balance;
+}
+
+
+
 void bankAccount::deposit(int amount) {
 	if (amount > 0) {
 		balance += amount;
@@ -40,11 +46,11 @@ void bankAccount::open(int amount) {
 
 
 
-double bankAccount::rate = init_rate();
+double bankAccount::rate = initRate();
 
 
 
-void display_balance(const bankAccount& b) {
+void displayBalance(const bankAccount& b) {
 	cout << "Balance is: " << b.balance << "\n";
 }
 
