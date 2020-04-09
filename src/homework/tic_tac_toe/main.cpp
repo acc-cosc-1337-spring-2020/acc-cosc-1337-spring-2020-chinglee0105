@@ -12,14 +12,14 @@ int main() {
 
 	int position;
 	while (player != "X" && player != "O") {
-		try
-		{
+
+		try {
 			cout << "Welcome to game of Tic Tac Toe!" << "\n";
 			cout << "Select your mark (X/O): ";
 			cin >> player;
 		}
-		catch (error e) 
-		{
+
+		catch (error e) {
 			cout << e.getMessage();
 		}
 		
@@ -30,11 +30,14 @@ int main() {
 	game.startGame(player);
 
 	while (proceed) {
+
 		for (int i = 0; i < 9; ++i) {
+
 			try {
 				if (game.gameOver() == false) {
 					cout << "Enter your position Player " << game.getPlayer() << ": ";
 					cin >> position;
+
 					game.markBoard(position);
 					game.displayBoard();
 				}

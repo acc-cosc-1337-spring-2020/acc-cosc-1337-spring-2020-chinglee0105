@@ -14,7 +14,7 @@ public:
 	void markBoard(int postition);
 	void displayBoard() const;
 
-	string getWinner();
+	string getWinner() const;
 
 	bool gameOver();
 

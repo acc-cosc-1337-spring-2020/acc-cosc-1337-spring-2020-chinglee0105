@@ -1,5 +1,6 @@
 #include "bank_account.h"
 #include<iostream>
+#include "atm.h"
 
 using std::cout;
 
@@ -60,7 +61,6 @@ ostream& operator<<(ostream& out, const bankAccount& b) {
 	out << "Balance is: " << b.balance << "\n";
 	return out;
 }
-
 
 
 istream& operator>>(istream& in, bankAccount& b) {

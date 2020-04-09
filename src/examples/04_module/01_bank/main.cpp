@@ -1,6 +1,7 @@
 #include "checking_account.h"
 #include "savings_account.h"
 #include "customer.h"
+#include "atm.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,36 +12,32 @@ using std::cin;
 using std::vector;
 using std::unique_ptr;
 using std::make_unique;
+using std::move;
 
 int main() {
-	unique_ptr<bankAccount> s = make_unique < savingsAccount> ( 90 );
-	unique_ptr<bankAccount> c = make_unique < checkingAccount> (100);
+	//bankAccount z; // not allow because it's in stack
+	//bankAccount *z; //save memory for an instance of bank account type
+	//z = new savingsAccount(60);
 
-	vector<unique_ptr<bankAccount>> accounts;
-	accounts.push_back(std::move(s));
-	accounts.push_back(std::move(c));
+	unique_ptr<bankAccount> s = make_unique <savingsAccount> ( 90 ); //heap variable or a pointer behind the scenes
+	unique_ptr<bankAccount> c = make_unique <checkingAccount> (100);
 
-	for (auto &act : accounts) {
-		cout << act->getBalance() << "\n";
-	}
+	customer cust;
+	cust.addAccount(s);
+	cust.addAccount(c);
 
-	bankAccount* act = new checkingAccount(100);
-	//use it
+	ATM atm(cust);
+	cout << atm;
 
-	delete act;
-	act = nullptr;
+	//for (auto &act : accounts) {
+	//	cout << act -> getBalance() << "\n";
+	//}
 
-	/*
+	//bankAccount* act = new checkingAccount(100);
+	////use it
 
-	do you want to play again loop
-	TTT game;
-
-	loop for mark board
-
-	game ends
-
-	call manager save game
-	*/
+	//delete act;
+	//act = nullptr;
 
 	//bankAccount a;
 	//cout << a.get_balance();
@@ -51,31 +48,31 @@ int main() {
 	//	cout << act.get_balance() << "\n";
 	//}
 
-	bankAccount account(500);
+	//bankAccount account(500);
 
-	cin >> account;
-	cout << account;
+	//cin >> account;
+	//cout << account;
 
-	displayBalance(account);
+	//displayBalance(account);
 
-	auto balance = account.getBalance();
-	cout << "Balance is: \n" << balance;
+	//auto balance = account.getBalance();
+	//cout << "Balance is: \n" << balance;
 
-	auto amount{ 0 };
-	cout << "\nEnter deposit amount: \n";
-	cin >> amount;
+	//auto amount{ 0 };
+	//cout << "\nEnter deposit amount: \n";
+	//cin >> amount;
 
-	try {
-		account.deposit(amount);
-		cout << "Balance is: " << account.getBalance();
-	}
+	//try {
+	//	account.deposit(amount);
+	//	cout << "Balance is: " << account.getBalance();
+	//}
 
-	catch (invalid e) {
-		cout << e.getError() << "\n";
-	}
+	//catch (invalid e) {
+	//	cout << e.getError() << "\n";
+	//}
 
-	account.deposit(amount);
-	cout << "Balance is: " << balance;
+	//account.deposit(amount);
+	//cout << "Balance is: " << balance;
 
 	return 0;
 }

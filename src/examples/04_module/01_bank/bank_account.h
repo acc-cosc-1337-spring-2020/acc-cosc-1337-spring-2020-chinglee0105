@@ -10,7 +10,9 @@ using std::istream;
 
 //bank_account.h
 class bankAccount {
+
 public:
+
 	bankAccount() = default;
 
 	explicit bankAccount(int b) : balance{b}{}
@@ -28,9 +30,11 @@ public:
 	friend istream& operator>>(istream& in, bankAccount& b);
 
 protected:
+
 	int balance{ 0 };
 
 private:
+
 	const int min_balance_to_open{ 25 };
 
 	static double rate;

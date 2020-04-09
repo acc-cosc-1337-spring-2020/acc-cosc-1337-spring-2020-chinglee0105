@@ -1,13 +1,16 @@
 #include"customer.h"
 //customer.cpp
 
-//void customer::addAccount(bankAccount& act) {
-//	accounts.push_back(act);
-//}
-//
-//void customer::displayAccounts() const {
-//
-//	for (auto account : accounts) {
-//		cout << account.get_balance() << "\n";
-//	}
-//}
+void customer::addAccount(unique_ptr<bankAccount>& act) {
+
+	accounts.push_back(move(act));
+}
+
+ostream& operator<<(ostream& out, const customer& c) {
+
+	for (auto& account : c.accounts) {
+		out << *account<< "\n";
+	}
+
+	return out;
+}

@@ -27,7 +27,9 @@ void ticTacToe::markBoard(int position) {
 
 	pegs[position - 1] = player;
 
-	setNextPlayer();
+	if (gameOver() == false) {
+		setNextPlayer();
+	}
 }
 
 
@@ -40,7 +42,7 @@ void ticTacToe::displayBoard() const {
 
 
 
-string ticTacToe::getWinner() {
+string ticTacToe::getWinner() const {
 	return winner;
 }
 
