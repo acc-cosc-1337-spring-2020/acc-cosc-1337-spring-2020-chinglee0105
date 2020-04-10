@@ -1,16 +1,19 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include<iostream>
 
 using std::cout;
 using std::cin;
 
 int main() {
+
 	bool proceed = true;
 
 	string decisionToProceed;
 	string player;
 
 	int position;
+
 	while (player != "X" && player != "O") {
 
 		try {
@@ -22,10 +25,10 @@ int main() {
 		catch (error e) {
 			cout << e.getMessage();
 		}
-		
 	} 
 
 	ticTacToe game;
+	ticTacToeManager manager;
 
 	game.startGame(player);
 
@@ -33,32 +36,45 @@ int main() {
 
 		for (int i = 0; i < 9; ++i) {
 
-			try {
-				if (game.gameOver() == false) {
-					cout << "Enter your position Player " << game.getPlayer() << ": ";
-					cin >> position;
-
-					game.markBoard(position);
-					game.displayBoard();
+			if (game.gameOver() == false) {
+					
+				try {
+					cin >> game;
+					cout << game;
 				}
-				else {
-					cout << game.getWinner() << " win the game!" << "\n";
-					break;
+
+				catch (error e) {
+					cout << e.getMessage() << "\n";
 				}
 			}
 
-			catch (error e) {
-				cout << e.getMessage() << "\n";
+			else {
+				break;
 			}
 		}
+
+		cout << game.getWinner() << " win the game!" << "\n";
+		cout << "\n";
+
+		manager.saveGame(game);
 
 		cout << "Do you wish to continue? (Y/N): ";
 		cin >> decisionToProceed;
 
 		if (decisionToProceed != "y" && decisionToProceed != "Y") {
+
 			proceed = false;
 		}
+		
+		else{
+
+			game.startGame(player);
+		}
 	}
+
+	cout << "\n";
+
+	cout << manager;
 
 	cout << "Game Over.";
 }

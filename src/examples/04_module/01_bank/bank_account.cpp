@@ -63,6 +63,7 @@ ostream& operator<<(ostream& out, const bankAccount& b) {
 }
 
 
+
 istream& operator>>(istream& in, bankAccount& b) {
 	int amount;
 

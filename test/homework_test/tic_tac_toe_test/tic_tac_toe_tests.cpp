@@ -9,7 +9,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 
 
-TEST_CASE("Test can’t call mark board before start game (SEE EXAMPLE BELOW)") {
+TEST_CASE("Test can’t call mark board before start game") {
 	ticTacToe game;
 	REQUIRE_THROWS_AS(game.markBoard(1), error);
 }
@@ -78,7 +78,7 @@ TEST_CASE("Test game ends when board is full") {
 
 
 
-TEST_CASE("Test Mark Position accepts values from  1 to 9 only") {
+TEST_CASE("Test Mark Position accepts values from 1 to 9 only") {
 	ticTacToe game;
 	game.startGame("X");
 
@@ -129,6 +129,8 @@ TEST_CASE("Test win by first column") {
 	game.markBoard(7);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -153,6 +155,8 @@ TEST_CASE("Test win by second column") {
 	game.markBoard(8);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -177,6 +181,8 @@ TEST_CASE("Test win by third column") {
 	game.markBoard(9);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -201,6 +207,8 @@ TEST_CASE("Test win by first row") {
 	game.markBoard(3);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -225,6 +233,8 @@ TEST_CASE("Test win by second row") {
 	game.markBoard(6);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -249,6 +259,8 @@ TEST_CASE("Test win by third row") {
 	game.markBoard(9);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -273,6 +285,8 @@ TEST_CASE("Test win by diagonally from top left") {
 	game.markBoard(9);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 
@@ -297,6 +311,8 @@ TEST_CASE("Test win by diagonally from bottom left") {
 	game.markBoard(3);
 
 	REQUIRE(game.gameOver() == true);
+
+	REQUIRE(game.getWinner() == "X");
 }
 
 

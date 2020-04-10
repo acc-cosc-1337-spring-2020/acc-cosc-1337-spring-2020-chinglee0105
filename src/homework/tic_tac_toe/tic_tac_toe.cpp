@@ -34,14 +34,6 @@ void ticTacToe::markBoard(int position) {
 
 
 
-void ticTacToe::displayBoard() const {
-	for (int i = 0; i < 9; i += 3) {
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
-	}
-}
-
-
-
 string ticTacToe::getWinner() const {
 	return winner;
 }
@@ -95,10 +87,10 @@ bool ticTacToe::checkDiagonalWin() {
 
 void ticTacToe::setWinner() {
 	if (player == "X") {
-		winner = "O";
+		winner = "X";
 	}
 	else {
-		winner = "X";
+		winner = "O";
 	}
 }
 
@@ -130,4 +122,27 @@ bool ticTacToe::checkBoardFull() {
 		}
 	}
 	return true;
+}
+
+
+
+ostream& operator<<(ostream& out, const ticTacToe& t) {
+
+	for (int i = 0; i < 9; i += 3) {
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << "\n";
+	}
+	
+	return out;
+}
+
+
+
+istream& operator>>(istream& in, ticTacToe& t) {
+	
+	int position;
+	cout << "Enter your position Player " << t.getPlayer() << ": ";
+	in >> position;
+
+	t.markBoard(position);
+	return in;
 }
