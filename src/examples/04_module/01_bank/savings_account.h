@@ -6,5 +6,5 @@ public:
 	savingsAccount() = default;
 	explicit savingsAccount(int b) : bankAccount(b) {}
 
-	int getBalance() const { return balance; }
+	int getBalance() const { return 5000; }
 };

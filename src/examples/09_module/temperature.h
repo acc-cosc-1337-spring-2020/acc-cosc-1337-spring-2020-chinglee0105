@@ -1,1 +1,17 @@
+#ifndef TEMPERATURE.H
+#define TEMPERATURE.H
+
 //temperature.h
+class Temperature {
+
+public:
+	Temperature(int h, double r) : hour{ h }, reading{ r }{}
+	int get_hour() const { return hour; }
+	double get_reading() const { return reading; }
+
+private:
+	int hour;
+	double reading;
+};
+
+#endif

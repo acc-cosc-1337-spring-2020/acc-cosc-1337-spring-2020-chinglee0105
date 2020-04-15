@@ -1,8 +1,8 @@
 #ifndef TIC_TAC_TOE
 #define TIC_TAC_TOE
 
-#include<string>
-#include<iostream>
+#include <string>
+#include <iostream>
 #include <vector>
 
 using std::vector;

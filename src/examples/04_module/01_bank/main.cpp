@@ -22,12 +22,14 @@ int main() {
 	unique_ptr<bankAccount> s = make_unique <savingsAccount> ( 90 ); //heap variable or a pointer behind the scenes
 	unique_ptr<bankAccount> c = make_unique <checkingAccount> (100);
 
-	customer cust;
-	cust.addAccount(s);
-	cust.addAccount(c);
+	vector<unique_ptr<BankAccount>> accounts;
 
-	ATM atm(cust);
-	cout << atm;
+	accounts.push_back(move(s));
+	accounts.push_back(move(c));
+
+	for (auto& account : accounts) {
+		cout << account->getBalance() << "\n";
+	}
 
 	//for (auto &act : accounts) {
 	//	cout << act -> getBalance() << "\n";
