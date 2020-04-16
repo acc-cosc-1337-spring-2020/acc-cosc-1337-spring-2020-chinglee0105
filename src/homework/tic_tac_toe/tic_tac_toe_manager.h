@@ -13,19 +13,19 @@ using std::ostream;
 //h
 class ticTacToeManager {
 
-public:
+	public:
+		void saveGame(const ticTacToe b);
+		void getWinnerTotal(int& o, int& x, int& t);
 
-	void saveGame(const ticTacToe b);
-	void getWinnerTotal(int& o, int& x, int& t);
-	friend ostream& operator << (ostream& out, const ticTacToeManager& manager);
+		friend ostream& operator << (ostream& out, const ticTacToeManager& manager);
 
-private:
+	private:
+		vector<ticTacToe> games;
 
-	vector<ticTacToe> games;
-	int xWin = 0;
-	int oWin = 0;
-	int ties = 0;
+		int xWin = 0;
+		int oWin = 0;
+		int ties = 0;
 
-	void updateWinnerCount(string winner);
+		void updateWinnerCount(string winner);
 };
 #endif

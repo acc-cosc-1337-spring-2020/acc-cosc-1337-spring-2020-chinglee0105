@@ -11,15 +11,16 @@ using std::string;
 using std::ostream;
 
 //h
-class ticTacToe3 {
+class ticTacToe3 : public ticTacToe {
 
-public:
+	public:
+		ticTacToe3() = default;
 
-	bool checkColumnWin3();
-	bool checkRowWin3();
-	bool checkDiagonalWin3();
+		explicit ticTacToe3() : ticTacToe(){}
 
-private:
-
+	private:
+		bool checkColumnWin();
+		bool checkRowWin();
+		bool checkDiagonalWin();
 };
 #endif

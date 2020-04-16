@@ -13,7 +13,6 @@ void ticTacToeManager::saveGame(const ticTacToe b) {
 
 
 void ticTacToeManager::getWinnerTotal(int& o, int& x, int& t) {
-
 	cout << "X Wins: " << x << "\n";
 	cout << "O Wins: " << o << "\n";
 	cout << "Ties: " << t << "\n";
