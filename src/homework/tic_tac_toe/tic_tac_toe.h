@@ -25,7 +25,7 @@ class ticTacToe {
 		friend ostream& operator<<(ostream& out, const ticTacToe& t);
 		friend istream& operator>>(istream& in, ticTacToe& t);
 
-		size(int s) : vector(s* s, "") {};
+		ticTacToe( int size ):pegs(size*size, ""){}
 
 	protected:
 		vector<string> pegs{ 9, " " };

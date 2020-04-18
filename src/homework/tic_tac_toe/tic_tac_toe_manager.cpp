@@ -4,7 +4,7 @@ using std::cout;
 
 //cpp
 
-void ticTacToeManager::saveGame(const ticTacToe b) {
+void ticTacToeManager::saveGame(ticTacToe b) {
 	games.push_back(b);
 	updateWinnerCount(b.getWinner());
 	getWinnerTotal(oWin, xWin, ties);
@@ -35,7 +35,7 @@ void ticTacToeManager::updateWinnerCount(string winner) {
 
 
 ostream& operator<<(ostream& out, const ticTacToeManager& manager) {
-	
+
 	int numOfTies = 0;
 	int numOfXWins = 0;
 	int numOfOWins = 0;
@@ -44,10 +44,9 @@ ostream& operator<<(ostream& out, const ticTacToeManager& manager) {
 	for (auto& game : manager.games) {
 
 		out << game << "\n";
-		string winner = game.getWinner();
+		string winner = game->getWinner();
 
 		if (winner == "X") {
-
 			++numOfXWins;
 		}
 

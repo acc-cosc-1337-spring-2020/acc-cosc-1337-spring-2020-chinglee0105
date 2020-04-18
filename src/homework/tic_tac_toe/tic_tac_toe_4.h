@@ -16,7 +16,7 @@ class ticTacToe4 : public ticTacToe {
 	public:
 		ticTacToe4() = default;
 
-		explicit ticTacToe4() : ticTacToe() {}
+		explicit ticTacToe4(int size) : ticTacToe(size) {}
 
 	private:
 		bool checkColumnWin();

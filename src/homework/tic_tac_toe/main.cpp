@@ -14,6 +14,8 @@ int main() {
 
 	int position;
 
+	vector<reference_wrapper<ticTacToe>> games;
+
 	while (player != "X" && player != "O") {
 
 		try {
@@ -25,22 +27,22 @@ int main() {
 		catch (error e) {
 			cout << e.getMessage();
 		}
-	} 
+	}
 
-	ticTacToe game;
+	ticTacToe games = ticTacToe(3);
 	ticTacToeManager manager;
 
-	game.startGame(player);
+	ticTacToe(3).startGame(player);
 
 	while (proceed) {
 
 		for (int i = 0; i < 9; ++i) {
 
-			if (game.gameOver() == false) {
-					
+			if (ticTacToe(3).gameOver() == false) {
+
 				try {
-					cin >> game;
-					cout << game;
+					cin >> ticTacToe(3);
+					cout << ticTacToe(3);
 				}
 
 				catch (error e) {
@@ -53,10 +55,10 @@ int main() {
 			}
 		}
 
-		cout << game.getWinner() << " win the game!" << "\n";
+		cout << ticTacToe(3).getWinner() << " win the game!" << "\n";
 		cout << "\n";
 
-		manager.saveGame(game);
+		manager.saveGame(ticTacToe(3));
 
 		cout << "Do you wish to continue? (Y/N): ";
 		cin >> decisionToProceed;
@@ -65,10 +67,10 @@ int main() {
 
 			proceed = false;
 		}
-		
-		else{
 
-			game.startGame(player);
+		else {
+
+			ticTacToe(3).startGame(player);
 		}
 	}
 

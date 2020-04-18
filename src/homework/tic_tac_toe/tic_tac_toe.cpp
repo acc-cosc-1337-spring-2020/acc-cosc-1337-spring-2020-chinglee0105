@@ -18,11 +18,11 @@ void ticTacToe::startGame(string firstPlayer) {
 
 void ticTacToe::markBoard(int position) {
 	if (position > 9 || position < 1) {
-		throw error ("Position must be 1 to 9.");
+		throw error("Position must be 1 to 9.");
 	}
 
 	if (player == "") {
-		throw error ("Must start game first.");
+		throw error("Must start game first.");
 	}
 
 	pegs[position - 1] = player;
@@ -108,7 +108,7 @@ void ticTacToe::setNextPlayer() {
 
 
 void ticTacToe::clearBoard() {
-	for (auto &peg : pegs) {
+	for (auto& peg : pegs) {
 		peg = " ";
 	}
 }
@@ -131,18 +131,24 @@ ostream& operator<<(ostream& out, const ticTacToe& t) {
 	for (int i = 0; i < 9; i += 3) {
 		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << "\n";
 	}
-	
+
+	for (int i = 0; i < 15; i += 3) {
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << t.pegs[i + 3] << "\n";
+	}
+
 	return out;
 }
 
 
 
 istream& operator>>(istream& in, ticTacToe& t) {
-	
+
 	int position;
+
 	cout << "Enter your position Player " << t.getPlayer() << ": ";
 	in >> position;
 
 	t.markBoard(position);
+
 	return in;
 }
