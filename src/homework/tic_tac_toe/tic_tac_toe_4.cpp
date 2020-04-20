@@ -16,7 +16,7 @@ bool ticTacToe4::checkColumnWin() {
 	bool column3 = pegs[2].compare(pegs[6]) == 0 && pegs[6].compare(pegs[10]) == 0 && pegs[10].compare(pegs[14]) == 0 && pegs[14].compare(" ") != 0;
 	bool column4 = pegs[3].compare(pegs[7]) == 0 && pegs[7].compare(pegs[11]) == 0 && pegs[11].compare(pegs[15]) == 0 && pegs[15].compare(" ") != 0;
 
-	return false;
+	return column1 || column2 || column3 || column4;
 }
 
 
@@ -35,7 +35,7 @@ bool ticTacToe4::checkRowWin() {
 	bool row3 = pegs[8].compare(pegs[9]) == 0 && pegs[9].compare(pegs[10]) == 0 && pegs[10].compare(pegs[11]) == 0 && pegs[11].compare(" ") != 0;
 	bool row4 = pegs[12].compare(pegs[13]) == 0 && pegs[13].compare(pegs[14]) == 0 && pegs[14].compare(pegs[15]) == 0 && pegs[15].compare(" ") != 0;
 
-	return false;
+	return row1 || row2 || row3 || row4;
 }
 
 
@@ -52,5 +52,5 @@ bool ticTacToe4::checkDiagonalWin() {
 	bool diagonal1 = pegs[0].compare(pegs[5]) == 0 && pegs[5].compare(pegs[10]) == 0 && pegs[10].compare(pegs[15]) == 0 && pegs[15].compare(" ") != 0;
 	bool diagonal2 = pegs[3].compare(pegs[6]) == 0 && pegs[6].compare(pegs[9]) == 0 && pegs[9].compare(pegs[12]) == 0 && pegs[12].compare(" ") != 0;
 
-	return false;
+	return diagonal1 || diagonal2;
 }

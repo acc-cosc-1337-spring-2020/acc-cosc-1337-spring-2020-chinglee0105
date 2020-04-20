@@ -1,82 +1,79 @@
-#include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 #include<iostream>
+#include<functional>
 
-using std::cout;
-using std::cin;
+using std::cout; using std::cin; using std::string;
 
-int main() {
-
-	bool proceed = true;
-
-	string decisionToProceed;
-	string player;
-
-	int position;
-
-	vector<reference_wrapper<ticTacToe>> games;
-
-	while (player != "X" && player != "O") {
-
-		try {
-			cout << "Welcome to game of Tic Tac Toe!" << "\n";
-			cout << "Select your mark (X/O): ";
-			cin >> player;
-		}
-
-		catch (error e) {
-			cout << e.getMessage();
-		}
-	}
-
-	ticTacToe games = ticTacToe(3);
+int main()
+{
 	ticTacToeManager manager;
+	string cont;
+	std::vector<std::reference_wrapper<ticTacToe>> games;
 
-	ticTacToe(3).startGame(player);
+	do
+	{
+		int game_type;
+		cout << "\nTictactoe 3 or 4?";
+		cin >> game_type;
+		ticTacToe3 game3;
+		ticTacToe4 game4;
 
-	while (proceed) {
+		if (game_type == 3)
+		{
+			games.push_back(game3);
+		}
+		else if (game_type == 4)
+		{
+			games.push_back(game4);
+		}
 
-		for (int i = 0; i < 9; ++i) {
+		std::reference_wrapper<ticTacToe> game = games.back();
 
-			if (ticTacToe(3).gameOver() == false) {
+		string player = "Y";
 
-				try {
-					cin >> ticTacToe(3);
-					cout << ticTacToe(3);
-				}
+		while (!(player == "O" || player == "X"))
+		{
+			try
+			{
+				cout << "Enter player: ";
+				cin >> player;
 
-				catch (error e) {
-					cout << e.getMessage() << "\n";
-				}
+				game.get().startGame(player);
+			}
+			catch (error e)
+			{
+				cout << e.getMessage();
+			}
+		}
+
+		int choice = 1;
+
+		do
+		{
+			try
+			{
+				cin >> game.get();
+				cout << game.get();
+			}
+			catch (error e)
+			{
+				cout << e.getMessage();
 			}
 
-			else {
-				break;
-			}
-		}
+		} while (!game.get().gameOver());
 
-		cout << ticTacToe(3).getWinner() << " win the game!" << "\n";
-		cout << "\n";
+		manager.saveGame(game.get());
 
-		manager.saveGame(ticTacToe(3));
+		cout << "\nWinner: " << game.get().getWinner() << "\n";
 
-		cout << "Do you wish to continue? (Y/N): ";
-		cin >> decisionToProceed;
+		cout << "Enter Y to play again: ";
+		cin >> cont;
 
-		if (decisionToProceed != "y" && decisionToProceed != "Y") {
-
-			proceed = false;
-		}
-
-		else {
-
-			ticTacToe(3).startGame(player);
-		}
-	}
-
-	cout << "\n";
+	} while (cont == "Y");
 
 	cout << manager;
 
-	cout << "Game Over.";
+	return 0;
 }

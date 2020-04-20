@@ -14,9 +14,9 @@ using std::ostream;
 class ticTacToe3 : public ticTacToe {
 
 	public:
-		ticTacToe3() = default;
+		
 
-		explicit ticTacToe3(int size) : ticTacToe(size) {}
+		ticTacToe3() : ticTacToe(3) {}
 
 	private:
 		bool checkColumnWin();

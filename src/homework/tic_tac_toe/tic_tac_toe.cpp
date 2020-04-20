@@ -57,30 +57,19 @@ bool ticTacToe::gameOver() {
 
 
 bool ticTacToe::checkColumnWin() {
-	bool column1 = pegs[0].compare(pegs[3]) == 0 && pegs[3].compare(pegs[6]) == 0 && pegs[6].compare(" ") != 0;
-	bool column2 = pegs[1].compare(pegs[4]) == 0 && pegs[4].compare(pegs[7]) == 0 && pegs[7].compare(" ") != 0;
-	bool column3 = pegs[2].compare(pegs[5]) == 0 && pegs[5].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
-
-	return column1 || column2 || column3;
+	return false;
 }
 
 
 
 bool ticTacToe::checkRowWin() {
-	bool row1 = pegs[0].compare(pegs[1]) == 0 && pegs[1].compare(pegs[2]) == 0 && pegs[2].compare(" ") != 0;
-	bool row2 = pegs[3].compare(pegs[4]) == 0 && pegs[4].compare(pegs[5]) == 0 && pegs[5].compare(" ") != 0;
-	bool row3 = pegs[6].compare(pegs[7]) == 0 && pegs[7].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
-
-	return row1 || row2 || row3;
+	return false;
 }
 
 
 
 bool ticTacToe::checkDiagonalWin() {
-	bool diagonal1 = pegs[0].compare(pegs[4]) == 0 && pegs[4].compare(pegs[8]) == 0 && pegs[8].compare(" ") != 0;
-	bool diagonal2 = pegs[6].compare(pegs[4]) == 0 && pegs[4].compare(pegs[2]) == 0 && pegs[2].compare(" ") != 0;
-
-	return diagonal1 || diagonal2;
+	return false;
 }
 
 
@@ -128,12 +117,16 @@ bool ticTacToe::checkBoardFull() {
 
 ostream& operator<<(ostream& out, const ticTacToe& t) {
 
-	for (int i = 0; i < 9; i += 3) {
-		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << "\n";
-	}
+	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
+	{
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
 
-	for (int i = 0; i < 15; i += 3) {
-		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << t.pegs[i + 3] << "\n";
+		if (t.pegs.size() == 16)
+		{
+			out << "|" << t.pegs[i + 3];
+		}
+
+		out << "\n";
 	}
 
 	return out;
