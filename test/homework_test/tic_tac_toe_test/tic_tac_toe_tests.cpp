@@ -16,10 +16,14 @@ TEST_CASE("Test can’t call mark board before start game") {
 
 
 
-TEST_CASE("Test start game accepts only X or O") {
-	ticTacToe game;
-	REQUIRE_THROWS_AS(game.startGame("Y"), error);
-}
+//TEST_CASE("Test start game accepts only X or O") {
+//	ticTacToe game;
+//	REQUIRE_THROWS_AS(game.startGame("Y"), error);
+//
+//	ticTacToe3 board1;
+//	reference_wrapper<ticTacToe> board = board1;
+//	board.getPlayer()
+//}
 
 
 
