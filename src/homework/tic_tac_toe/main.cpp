@@ -1,35 +1,41 @@
 #include "tic_tac_toe_manager.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
-#include<iostream>
-#include<functional>
+#include <iostream>
+#include <memory>
 
-using std::cout; using std::cin; using std::string;
+using std::cout;
+using std::cin;
+using std::string;
+using std::vector;
+using std::unique_ptr;
+using std::make_unique;
+using std::move;
 
 int main()
 {
-	ticTacToeManager manager;
+	unique_ptr<ticTacToeManager> manager;
 	string cont;
-	std::vector<std::reference_wrapper<ticTacToe>> games;
+	vector<unique_ptr<ticTacToe>> games;
 
 	do
 	{
 		int game_type;
+
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
-		ticTacToe3 game3;
-		ticTacToe4 game4;
 
-		if (game_type == 3)
-		{
-			games.push_back(game3);
+		unique_ptr<ticTacToe> game3 = make_unique <ticTacToe3> ();
+		unique_ptr<ticTacToe> game4 = make_unique <ticTacToe4> ();
+
+		if (game_type == 3) {
+			move(game3);
 		}
-		else if (game_type == 4)
-		{
-			games.push_back(game4);
+		else if (game_type == 4) {
+			move(game4);
 		}
 
-		std::reference_wrapper<ticTacToe> game = games.back();
+		unique_ptr<ticTacToe> game = move(game4);
 
 		string player = "Y";
 
@@ -64,7 +70,7 @@ int main()
 
 		} while (!game.get().gameOver());
 
-		manager.saveGame(game.get());
+		manager->saveGame(game.get());
 
 		cout << "\nWinner: " << game.get().getWinner() << "\n";
 

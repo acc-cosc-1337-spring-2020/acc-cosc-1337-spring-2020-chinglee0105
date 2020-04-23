@@ -1,11 +1,12 @@
 #include "tic_tac_toe_manager.h"
 
 using std::cout;
+using std::move;
 
 //cpp
 
-void ticTacToeManager::saveGame(ticTacToe b) {
-	games.push_back(b);
+void ticTacToeManager::saveGame(unique_ptr<ticTacToe>& b) {
+	move(games);
 	updateWinnerCount(b.getWinner());
 	getWinnerTotal(oWin, xWin, ties);
 }

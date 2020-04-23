@@ -1,9 +1,8 @@
 #include "vector.h"
 #include<iostream>
 
-int main() 
-{
+int main() {
+	useVector();
 
 	return 0;
 }
-

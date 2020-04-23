@@ -30,9 +30,9 @@ class ticTacToe {
 	protected:
 		vector<string> pegs{ 9, " " };
 
-		virtual bool checkColumnWin();
-		virtual bool checkRowWin();
-		virtual bool checkDiagonalWin();
+		virtual bool checkColumnWin() = 0;
+		virtual bool checkRowWin() = 0;
+		virtual bool checkDiagonalWin() = 0;
 
 	private:
 		string player;

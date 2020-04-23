@@ -17,10 +17,18 @@ class Vector {
 		int& operator[](int i) { return nums[i]; }
 		int& operator[](int i)const { return nums[i]; }
 
+		~Vector();
+
 	private:
 		size_t size;
 		int* nums;
-
 };
 
 #endif
+
+/*
+doesn't belong to class
+free function
+*/
+
+void useVector();

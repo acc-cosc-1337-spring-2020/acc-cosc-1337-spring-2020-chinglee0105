@@ -7,23 +7,24 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <memory>
 
 using std::vector;
 using std::string;
 using std::ostream;
-using std::reference_wrapper;
+using std::unique_ptr;
 
 //h
 class ticTacToeManager {
 
 	public:
-		void saveGame(ticTacToe b);
+		void saveGame(unique_ptr<ticTacToe>& b);
 		void getWinnerTotal(int& o, int& x, int& t);
 
 		friend ostream& operator << (ostream& out, const ticTacToeManager& manager);
 
 	private:
-		vector<reference_wrapper<ticTacToe>> games;
+		vector<unique_ptr<ticTacToe>> games;
 
 		int xWin = 0;
 		int oWin = 0;

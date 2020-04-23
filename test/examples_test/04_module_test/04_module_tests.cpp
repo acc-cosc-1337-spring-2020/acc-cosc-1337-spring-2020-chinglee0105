@@ -13,7 +13,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 
 TEST_CASE("Test bankAccount constructor") {
-	unique_ptr<bankAccount> account = make_unique < savingsAccount>(90);
+	unique_ptr<bankAccount> account = make_unique <savingsAccount>(90);
 
 	REQUIRE(account->getBalance() == 500);
 
