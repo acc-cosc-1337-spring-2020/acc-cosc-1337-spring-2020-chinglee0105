@@ -7,7 +7,7 @@ using std::move;
 
 void ticTacToeManager::saveGame(unique_ptr<ticTacToe>& b) {
 	move(games);
-	updateWinnerCount(b.getWinner());
+	updateWinnerCount(b->getWinner());
 	getWinnerTotal(oWin, xWin, ties);
 }
 

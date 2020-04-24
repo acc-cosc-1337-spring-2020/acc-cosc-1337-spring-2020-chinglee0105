@@ -25,17 +25,16 @@ int main()
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
 
-		unique_ptr<ticTacToe> game3 = make_unique <ticTacToe3> ();
-		unique_ptr<ticTacToe> game4 = make_unique <ticTacToe4> ();
-
 		if (game_type == 3) {
+			unique_ptr<ticTacToe> game3 = make_unique <ticTacToe3>();
 			move(game3);
 		}
 		else if (game_type == 4) {
+			unique_ptr<ticTacToe> game4 = make_unique <ticTacToe4>();
 			move(game4);
 		}
 
-		unique_ptr<ticTacToe> game = move(game4);
+		unique_ptr<ticTacToe> game = move(games);
 
 		string player = "Y";
 
