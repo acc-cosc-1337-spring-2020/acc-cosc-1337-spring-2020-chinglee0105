@@ -17,7 +17,7 @@ void ticTacToe::startGame(string firstPlayer) {
 
 
 void ticTacToe::markBoard(int position) {
-	if (position > 9 || position < 1) {
+	if (position > pegs.size() || position < 1) {
 		throw error("Position must be 1 to 9.");
 	}
 

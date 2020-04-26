@@ -348,6 +348,260 @@ TEST_CASE("Test for no winner") {
 
 	REQUIRE(game->gameOver() == false);
 	game->markBoard(9);
+	
+	REQUIRE(game->gameOver() == false);
+	game->markBoard(8);
 
 	REQUIRE(game->gameOver() == true);
 }
+
+
+TEST_CASE("Win by first column4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(5);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(6);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(9);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(13);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+	REQUIRE(game4->getWinner() == "X");
+}
+
+TEST_CASE("Win by second column4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(6);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(10);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(14);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by third column4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(11);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(15);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+TEST_CASE("Win by fourth column4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(8);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(12);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(15);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by first row4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(9);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by second row4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(5);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(6);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(9);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(10);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(8);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by third row4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(9);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(10);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(11);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(12);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+TEST_CASE("Win by fourth row4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(13);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(14);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(15);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by diagonally top left4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(6);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(11);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("Win by diagonally bottom left4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(10);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(13);//X
+	//X wins
+	REQUIRE(game4->gameOver() == true);
+}
+
+TEST_CASE("For no Winner4") {
+	std::unique_ptr<ticTacToe> game4 = std::make_unique<ticTacToe4>();
+	game4->startGame("X");
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(1);//X        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(2);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(3);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(4);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(6);//X
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(5);//O        
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(8);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(7);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(10);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(9);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(12);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(11);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(13);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(14);//O          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(15);//X          
+	REQUIRE(game4->gameOver() == false);
+	game4->markBoard(16);//O          
+	REQUIRE(game4->gameOver() == true);
+}
+
+
+

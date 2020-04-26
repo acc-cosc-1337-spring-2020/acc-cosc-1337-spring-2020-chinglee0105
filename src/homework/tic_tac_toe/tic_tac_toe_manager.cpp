@@ -39,7 +39,7 @@ ostream& operator<<(ostream& out, const ticTacToeManager& manager) {
 
 	for (auto& game : manager.games) {
 
-		out << game << "\n";
+		out << *game << "\n";
 	}
 
 	out << "X Wins: " << manager.xWin << "\n";
