@@ -14,6 +14,9 @@ class Vector {
 
 		Vector& operator=(const Vector& v); //copy assignment - Rule of 3
 
+		Vector(Vector&& v); //move constructor Rule of 5
+		Vector& operator=(Vector&& v); //move assignment
+
 		size_t Size() const { return size; }
 
 		int& operator[](int i) { return nums[i]; }
@@ -34,3 +37,5 @@ free function
 */
 
 void useVector();
+
+Vector getVector();

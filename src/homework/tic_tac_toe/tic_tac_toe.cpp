@@ -56,6 +56,12 @@ bool ticTacToe::gameOver() {
 
 
 
+ticTacToe::ticTacToe(vector<string> p, string win)
+	: pegs{ p }, winner{ win }  {
+}
+
+
+
 bool ticTacToe::checkColumnWin() {
 	return false;
 }

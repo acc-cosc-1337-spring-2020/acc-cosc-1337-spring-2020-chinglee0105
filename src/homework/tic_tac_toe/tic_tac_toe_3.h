@@ -14,7 +14,7 @@ using std::ostream;
 class ticTacToe3 : public ticTacToe {
 
 	public:
-		
+		ticTacToe3(vector<string> p, string winner);
 
 		ticTacToe3() : ticTacToe(3) {}
 

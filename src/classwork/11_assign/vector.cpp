@@ -55,6 +55,33 @@ Vector& Vector::operator=(const Vector& v) {
 }
 
 
+/*
+Get the dynamic memory from v
+Get the size from v
+Point the v.num to nullptr
+*/
+Vector::Vector(Vector&& v)
+    : size{ v.size }, nums{ v.nums } {
+    v.size = 0;
+    v.nums = nullptr;
+}
+
+
+/*
+Deallocate original dynamic memory
+Get the synamic memory form v
+Point v.nums to nullptr
+Set v.size to 0
+*/
+Vector& Vector::operator=(Vector&& v) {
+    delete nums;
+    nums = v.nums;
+    size = v.size;
+    v.nums = nullptr;
+    v.size = 0;
+}
+
+
 
 /*
 Release dynamic memory
@@ -72,4 +99,10 @@ void useVector() {
     Vector* v1 = new Vector(3);
     delete v1;
     v1 = nullptr;
+}
+
+Vector getVector() {
+    Vector v(3);
+
+    return v;
 }

@@ -27,6 +27,10 @@ class ticTacToe {
 
 		ticTacToe( int size ):pegs(size*size, ""){}
 
+		ticTacToe(vector<string> p, string win);
+
+		vector<string> getPegs() const { return pegs; }
+
 	protected:
 		vector<string> pegs{ 9, " " };
 
