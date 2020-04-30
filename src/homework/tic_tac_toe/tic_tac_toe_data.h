@@ -9,13 +9,14 @@
 
 using std::vector;
 using std::string;
-using std::ostream;
+using std::unique_ptr;
 
 //h
-class ticTacToeDATA : public ticTacToe {
+class ticTacToeData : public ticTacToe {
 
 	public:
-		void savePegs(const vector<string>& pgs);
+		void saveGames(const vector<unique_ptr<ticTacToe>>& games);
+		vector<unique_ptr<ticTacToe>> getGames();
 
 	private:
 
