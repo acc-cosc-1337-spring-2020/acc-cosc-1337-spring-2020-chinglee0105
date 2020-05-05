@@ -11,6 +11,7 @@ int main() {
 	//c = a * b; //a*b is an rvalue
 
 	//Vector v1 = getVector();
+	Vector v;
 
 	Vector v1(3);
 	v1 = getVector();

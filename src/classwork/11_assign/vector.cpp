@@ -3,6 +3,12 @@
 
 using std::cout;
 
+Vector::Vector()
+    : size {0}, nums{nullptr}, space{0} {
+}
+
+
+
 /*
 Initialize nums to size dynamic array.
 Initialize each array element to 0.
@@ -155,6 +161,7 @@ Vector::~Vector() {
 void useVector() {
     Vector* v1 = new Vector(3);
     delete v1;
+
     v1 = nullptr;
 }
 
