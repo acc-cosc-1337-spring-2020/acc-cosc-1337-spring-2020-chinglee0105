@@ -1,10 +1,7 @@
+#include "arrays_mem.h"
 
-
-int main() 
-{
-
-	
+int main() {
+	void stackArrayInitForRanged();
 
 	return 0;
-
 }
