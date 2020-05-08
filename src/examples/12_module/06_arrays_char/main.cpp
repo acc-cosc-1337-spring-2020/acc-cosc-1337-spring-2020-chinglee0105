@@ -1,8 +1,7 @@
+#include"arrays_char.h"
 
-
-int main()
-{
-	
+int main() {
+	charArrayNoSize();
 
 	return 0;
 };
